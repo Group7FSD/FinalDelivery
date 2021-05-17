@@ -1,0 +1,12 @@
+
+    <div class="sidenav">
+       <div class="list-items">
+           <a [routerLink]="['/rest-1',r1]" routerLinkActive="selected"  class="list-item">AdiGas</a>
+           <a [routerLink]="['/rest-2',r2]" routerLinkActive="selected" class="list-item">RotiGhar</a>
+           <a  [routerLink]="['/rest-3',r3]" routerLinkActive="selected" class="list-item">Panjabi Rasoi</a>
+           <a  [routerLink]="['/rest-4',r4]" routerLinkActive="selected" class="list-item">Udupi</a>
+       </div> 
+    </div>
+    <div class="main">
+    <router-outlet></router-outlet>
+</div>

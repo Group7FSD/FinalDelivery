@@ -1,0 +1,126 @@
+  
+<div class="container">
+    <h2 style="color:lightseagreen;">Checkout-Form:</h2>
+    <form #Checkform="ngForm" (ngSubmit)="registerUser(Checkform.value)">
+        <div class="sub-container">
+        <h4 style="color: lightcoral;">Customer Details</h4>
+        <!--Fisst Name-->
+        <div class="form-group">
+            <label for="first_name">Firstname:</label>
+            <input type="text" id="name" name="first_name" class="form-control" required minlength="2"
+                [(ngModel)]="customer.first_name" #first_name="ngModel" placeholder="Enter FirstName"
+                [class.is-invalid]="first_name.invalid && first_name.touched">
+            <small class="text-danger" [class.d-none]="first_name.valid || first_name.untouched">Firstname is required
+                field</small>
+            <div *ngIf="first_name.errors?.minlength">First Name must be at least 2 characters long. </div>
+                 
+        </div>
+        <!--Last Name-->
+        <div class="form-group">
+            <label for="last_name">LastName:</label>
+            <input type="text" class="form-control" placeholder="Enter LastName" name="last_name"
+                [(ngModel)]="customer.last_name" required minlength="2" #last_name="ngModel"
+                [class.is-invalid]="last_name.invalid && last_name.touched">
+            <small class="text-danger" [class.d-none]="last_name.valid || last_name.untouched">Lastname is required
+                field</small>
+                <div *ngIf="first_name.errors?.minlength">Last Name must be at least 2 characters long. </div>
+                 
+        </div>
+       
+         <!--Email-->
+         <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" placeholder="Enter email" name="email" [(ngModel)]="customer.email"
+                required pattern="\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #email="ngModel"
+                [class.is-invalid]="email.invalid && email.touched">
+            <div *ngIf="email.errors && ( email.invalid && email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">Email Id is required field</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">Enter the proper value of email</small>
+            </div>
+        </div>
+    </div>
+    <div class="sub-container">
+        <h4 style="color: lightcoral;">Address</h4>
+        
+         <!--country-->
+         <div class="form-group">
+            <label for="country">Country:</label>
+            <input type="text" class="form-control" placeholder="Enter Country" name="country"
+                [(ngModel)]="address.country" required #country="ngModel"
+                [class.is-invalid]="country.invalid && country.touched">
+            <small class="text-danger" [class.d-none]="country.valid || country.untouched">Country is required
+                field</small>
+              
+                
+        </div>
+        <!--state-->
+        <div class="form-group">
+    
+            <label for="city">City:</label>
+           <input type="text" class="form-control" placeholder="Enter city" name="city"
+                [(ngModel)]="address.city" required minlength="3" #city="ngModel"
+                [class.is-invalid]="city.invalid && city.touched">
+            <small class="text-danger" [class.d-none]="city.valid || city.untouched">city is required
+                field</small>
+                <div *ngIf="first_name.errors?.minlength">City must be at least 3 characters long. </div>
+           
+          
+        </div>
+         <!--City-->
+         <div class="form-group">
+            <label for="state">State:</label>
+           <input type="text" class="form-control" placeholder="Enter State" name="state"
+                [(ngModel)]="address.state" required #state="ngModel"
+                [class.is-invalid]="state.invalid && state.touched">
+            <small class="text-danger" [class.d-none]="state.valid || state.untouched">state is required
+                field</small> 
+              
+        </div>
+        <!--street-->
+        <div class="form-group">
+            <label for=" street">Street:</label>
+            <input type="text" class="form-control" placeholder="Enter street" name="street"
+                [(ngModel)]="address.street" required minlength="6" #street="ngModel"
+                [class.is-invalid]="street.invalid && street.touched">
+            <small class="text-danger" [class.d-none]="street.valid || street.untouched">street is required
+                field</small>
+                <div *ngIf="first_name.errors?.minlength">Street must be at least 6 characters long. </div>
+        </div>
+        <!--zipcode-->
+        <div class="form-group">
+            <label for="zipcode">Zipcode:</label>
+            <input type="text" class="form-control" placeholder="Enter zipcode" name="zipcode"
+                [(ngModel)]="address.zipcode" required minlength="6" #zipcode="ngModel"
+                [class.is-invalid]="zipcode.invalid && zipcode.touched">
+            <small class="text-danger" [class.d-none]="zipcode.valid || zipcode.untouched">zipcode is required
+                field</small>
+                <div *ngIf="first_name.errors?.minlength">zipcode must be at least 6 digits. </div>
+        </div>
+        </div>
+        <div class="sub-container">
+        <!--Order-->
+        <!--itemname-->
+        <h4 style="color: lightcoral;">Order</h4>
+      
+        <!--Price-->
+        <div class="form-group">
+            <label for=" price">Total Price:</label>
+            <input type="text" class="form-control" placeholder={{total_price}} name="total_price"
+                 disabled>
+           
+        </div>
+        <!--quantity-->
+        <div class="form-group">
+            <label for="  quantity">Total Quantity:</label>
+            <input type="text" class="form-control"  placeholder={{total_quantity}} name="total_quantity"
+                disabled>
+        </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-info" [disabled]="Checkform.form.invalid" >Checkout</button>
+        <button style="margin-left: 2%;background-color: darkblue;"  class="btn btn-info" [routerLink]="['']">Go to Home</button>
+
+    </form>
+     
+    </div>
+    

@@ -1,0 +1,47 @@
+<div class="contain">
+    
+    <div class="container">
+      <h1>Food Cart </h1>
+    </div>
+
+  <div class="container" *ngFor="let rest of restaurants">
+
+    <section id="cart"> 
+      <article class="product">
+        <header>
+          <a class="remove">
+            <img src={{rest.url}} alt="">
+
+          
+          </a>
+        </header>
+
+        <div class="content">
+
+          <h1>{{rest.dishname}}</h1>
+
+        </div>
+
+         <footer class="content">
+    
+          <h2 class="price">
+           Price:{{rest.price | currency:"INR"}}
+          </h2>
+        </footer>
+      </article>
+
+     
+    </section>
+
+  </div>
+
+  <footer id="site-footer">
+    <div class="container clearfix">
+      <div class="right">
+        <h1 class="total">Total: <span>{{total_price | currency:"INR"}}</span></h1>
+        <a class="btn" routerLink="/check">Checkout</a>
+      </div>
+
+    </div>
+  </footer>
+</div>

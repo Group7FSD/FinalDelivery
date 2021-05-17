@@ -1,0 +1,14 @@
+.container{
+    width: 30%;
+    display: inline-block;
+    margin-left: 3%;
+    box-shadow: 2px 2px 8px #ccc;
+    height: 250px ;
+    }
+    
+    .cart-button{
+        background-color: lightblue;
+        padding: 3%;
+        text-decoration: none;
+         
+    }
